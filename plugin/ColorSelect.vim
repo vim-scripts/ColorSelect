@@ -10,12 +10,15 @@
 "                 http://dannnylo.wordpress.com/2010/07/08/instalando-gtk-no-rvm/
 "
 """"""""""""""""""""""""""""""""""""""""""""""""
+if !exists("g:CaseResultColorSelect")
+  let g:CaseResultColorSelect=''
+endif
 function! ColorSelectFunc()
-	let result = system('ruby ~/.vim/plugin/ColorSelect.rb')
-	let line = getline(".")
-	let ant = getpos(".")[2]
-	let pos = ant+1
-	call setline(".", line[0 : getpos(".")[2]].result.line[getpos(".")[2]+1 : col("$")-1])
+  let result = system('ruby ~/.vim/plugin/ColorSelect.rb '.g:CaseResultColorSelect)
+  let line = getline(".")
+  let ant = getpos(".")[2]
+  let pos = ant+1
+  call setline(".", line[0 : getpos(".")[2]].result.line[getpos(".")[2]+1 : col("$")-1])
 endfunction
 
 command! ColorSelect call ColorSelectFunc()

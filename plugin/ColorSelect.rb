@@ -19,5 +19,5 @@ response = colorSelection.run
 if response == Gtk::Dialog::RESPONSE_OK
 	colorObj = colorSelection.colorsel.current_color
 	color = color_to_hex(colorObj.to_s)
-	print color
+	print color.send(ARGV.first || 'downcase')
 end
