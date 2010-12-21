@@ -1,7 +1,7 @@
 require 'gtk2'
 
 def round_hex(value)
-	if  value[2].hex > '9'.hex and value[0..1].hex < 255
+	if  value[2].to_s.hex > '9'.hex and value[0..1].hex < 255
 		value[0..1].hex.next.to_s(16) 
 	else
 		value[0..1].hex.to_s(16)
