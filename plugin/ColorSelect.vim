@@ -13,8 +13,9 @@
 if !exists("g:CaseResultColorSelect")
   let g:CaseResultColorSelect=''
 endif
+let s:install_dir = expand('<sfile>:p:h')
 function! ColorSelectFunc()
-  let result = system('ruby ~/.vim/plugin/ColorSelect.rb '.g:CaseResultColorSelect)
+  let result = system('ruby '.s:install_dir.'/ColorSelect.rb '.g:CaseResultColorSelect)
   let line = getline(".")
   let ant = getpos(".")[2]
   let pos = ant+1
